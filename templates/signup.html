@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Sign Up - Personal Information System{% endblock %}
+{% block content %}
+<section class="card">
+    <h2>Create Account</h2>
+    <form method="post" action="{{ url_for('signup') }}" class="form">
+        <label>
+            <span>Name</span>
+            <input type="text" name="name" required />
+        </label>
+        <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+        </label>
+        <label>
+            <span>Age</span>
+            <input type="number" name="age" min="1" required />
+        </label>
+        <label>
+            <span>Password</span>
+            <input type="password" name="password" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+</section>
+{% endblock %}
+
+
+

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Sign In - Personal Information System{% endblock %}
+{% block content %}
+<section class="card">
+    <h2>Sign In</h2>
+    <form method="post" action="{{ url_for('signin') }}" class="form">
+        <label>
+            <span>Email</span>
+            <input type="email" name="email" required />
+        </label>
+        <label>
+            <span>Password</span>
+            <input type="password" name="password" required />
+        </label>
+        <button type="submit" class="btn btn-primary">Sign In</button>
+    </form>
+</section>
+{% endblock %}
+
+
+

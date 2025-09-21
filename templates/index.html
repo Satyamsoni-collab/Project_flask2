@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Home - Personal Information System{% endblock %}
+{% block content %}
+<section class="card center">
+    <h2>Welcome</h2>
+    <p>Please choose an option:</p>
+    <div class="actions">
+        <a class="btn btn-primary" href="{{ url_for('signup') }}">Sign Up</a>
+        <a class="btn btn-secondary" href="{{ url_for('signin') }}">Sign In</a>
+    </div>
+</section>
+{% endblock %}
+
+

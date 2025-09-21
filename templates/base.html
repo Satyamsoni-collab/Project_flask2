@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Personal Information System{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <header class="site-header">
+        <div class="container narrow flex between center-v">
+            <h1 class="brand">Personal Information System</h1>
+            <nav class="nav">
+                <a href="{{ url_for('index') }}">Home</a>
+                <a href="{{ url_for('signup') }}">Sign Up</a>
+                {% if session.get('user_id') %}
+                    <a href="{{ url_for('dashboard') }}">Dashboard</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('signin') }}">Sign In</a>
+                {% endif %}
+            </nav>
+        </div>
+    </header>
+
+    <main class="container narrow">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-group">
+                    {% for category, message in messages %}
+                        <div class="flash {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container narrow">
+            <small>&copy; {{ 2025 }} Personal Information System</small>
+        </div>
+    </footer>
+</body>
+</html>
+
+
